@@ -4,7 +4,7 @@ Aplicacion web para la gestion de equipos de futbol y jugadores. Este proyecto h
 
 ## URL del Proyecto
 Puedes ver la aplicacion funcionando en el siguiente enlace:
-[PEGAR AQUI LA URL DE TU HOSTING]
+http://3.236.246.43/index.php
 
 ## Descripcion
 El objetivo de la aplicacion es permitir a los usuarios registrar su propio equipo de futbol y gestionar su plantilla. La web cuenta con una parte publica (visible para todos) y una parte privada (panel de administracion).
@@ -42,4 +42,5 @@ Si deseas probar la aplicacion sin realizar el registro, puedes usar este usuari
 1. Clonar este repositorio.
 2. Importar el archivo SQL adjunto en su gestor de base de datos.
 3. Configurar los datos de conexion en el archivo de configuracion de la base de datos.
+
 4. Ejecutar en un servidor local (Apache/XAMPP).
