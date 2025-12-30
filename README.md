@@ -36,11 +36,4 @@ A continuacion se detallan los pasos para probar la aplicacion:
 Si deseas probar la aplicacion sin realizar el registro, puedes usar este usuario administrador:
 
 - Email: malagacf@gmail.com
-- Contraseña: 1234
-
-## Instalacion en local
-1. Clonar este repositorio.
-2. Importar el archivo SQL adjunto en su gestor de base de datos.
-3. Configurar los datos de conexion en el archivo de configuracion de la base de datos.
-
-4. Ejecutar en un servidor local (Apache/XAMPP).
+- Contraseña: malagacf
