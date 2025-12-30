@@ -1,0 +1,401 @@
+/* ===============================
+   VARIABLES Y RESET
+================================ */
+:root {
+    --primary: #22c55e;
+    --primary-dark: #16a34a;
+    --danger: #ef4444;
+    --bg-dark: #0f172a;
+    --bg-light: #f8fafc;
+    --text-dark: #0f172a;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --shadow: 0 10px 25px rgba(0,0,0,0.08);
+    --radius: 12px;
+    --transition: 0.25s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+.navbar {
+    background: var(--bg-dark);
+    color: white;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: white;
+    letter-spacing: -0.5px;
+}
+
+.brand span {
+    color: var(--primary);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ===============================
+   BOTONES
+================================ */
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.btn-danger,
+a.btn-danger {
+    background: var(--danger);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.btn-danger:hover {
+    opacity: 0.85;
+}
+
+a.btn-warning {
+    background: #f59e0b; /* Color Ámbar */
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    margin-right: 5px; /* Separación con el botón borrar */
+    display: inline-block;
+}
+
+.btn-warning:hover {
+    background: #d97706;
+}
+
+/* ===============================
+   CONTENIDO GENERAL
+================================ */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+/* ===============================
+   HOME – CLUBES
+================================ */
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 25px;
+}
+
+.team-card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+}
+
+.team-header {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.team-logo-container {
+    width: 64px;
+    height: 64px;
+    background: #f1f5f9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.team-info h2 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.team-info span {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.team-roster {
+    padding: 20px;
+}
+
+.team-roster ul {
+    list-style: none;
+}
+
+.player-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+}
+
+.player-item:last-child {
+    border-bottom: none;
+}
+
+/* ===============================
+   BADGES
+================================ */
+.badge {
+    background: #e2e8f0;
+    color: #334155;
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 999px;
+    text-transform: uppercase;
+}
+
+/* ===============================
+   LOGIN
+================================ */
+.login-container {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.login-card {
+    background: white;
+    width: 100%;
+    max-width: 420px;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.login-card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.login-card p {
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+/* ===============================
+   FORMULARIOS
+================================ */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #334155;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 11px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* ===============================
+   PANEL DE GESTIÓN
+================================ */
+.admin-layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 30px;
+}
+
+/* ===============================
+   TABLAS
+================================ */
+.table-wrapper {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f1f5f9;
+}
+
+th, td {
+    padding: 14px 12px;
+    text-align: left;
+    font-size: 0.85rem;
+}
+
+th {
+    font-weight: 800;
+    color: #334155;
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--border);
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 900px) {
+    .admin-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+/* --- ACORDEÓN DE JUGADORES (NUEVO) --- */
+.jugador-item {
+    cursor: pointer; /* Manita al pasar el ratón */
+    transition: background 0.2s;
+}
+
+.jugador-item:hover {
+    background-color: #f1f5f9; /* Color al pasar el ratón */
+}
+
+.jugador-resumen {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 5px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+
+/* La flechita que gira */
+.flecha {
+    font-size: 0.7rem;
+    color: #999;
+    transition: transform 0.3s;
+    margin-right: 8px;
+}
+
+/* El cuadro con los detalles (oculto por defecto) */
+.jugador-detalles {
+    display: none; /* OCULTO */
+    background-color: #f8fafc;
+    padding: 15px;
+    border-top: 1px dashed #cbd5e1;
+    font-size: 0.85rem;
+    color: #475569;
+}
+
+/* Grid para los datos */
+.datos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.dato strong {
+    color: #1e293b;
+    display: block;
+}

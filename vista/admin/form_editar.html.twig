@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Jugador</title>
+    <link rel="stylesheet" href="css/estilos.css?v=3"> 
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="brand">⚙️ Panel<span>Gestión</span></a>
+        <div class="nav-menu">
+            <a href="index.php?ctl=admin" class="btn btn-outline">← Volver</a>
+        </div>
+    </nav>
+
+    <div class="login-container"> <div class="login-card" style="max-width: 600px;"> <h1>Editar Jugador</h1>
+            <p>Modificando datos de: <strong>{{ jugador.nombre }}</strong></p>
+
+            <form action="index.php?ctl=actualizar_jugador" method="POST">
+                <input type="hidden" name="id" value="{{ jugador.id }}">
+
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" name="nombre" value="{{ jugador.nombre }}" required>
+                </div>
+
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                    <div class="form-group">
+                        <label>Edad</label>
+                        <input type="number" name="edad" value="{{ jugador.edad }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Dorsal</label>
+                        <input type="number" name="dorsal" value="{{ jugador.dorsal }}" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Posición</label>
+                    <input type="text" name="posicion" value="{{ jugador.posicion }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label>País</label>
+                    <input type="text" name="pais" value="{{ jugador.pais }}" required>
+                </div>
+
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                    <div class="form-group">
+                        <label>Altura</label>
+                        <input type="text" name="altura" value="{{ jugador.altura }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Peso</label>
+                        <input type="text" name="peso" value="{{ jugador.peso }}" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width:100%; margin-top:15px;">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

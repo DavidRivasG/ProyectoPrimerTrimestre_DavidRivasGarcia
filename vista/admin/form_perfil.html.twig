@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Perfil del Club</title>
+    <link rel="stylesheet" href="css/estilos.css?v=3">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="brand">🏟️ Editar<span>Club</span></a>
+        <div class="nav-menu">
+            <a href="index.php?ctl=admin" class="btn btn-outline">Cancelar y Volver</a>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-card" style="max-width: 500px;">
+            <h1 style="color:var(--text-dark)">Datos del Club</h1>
+            <p>Actualiza la información institucional de <strong>{{ equipo.nombre }}</strong></p>
+
+            <form action="index.php?ctl=guardar_perfil" method="POST">
+                
+                <div class="form-group">
+                    <label>Nombre del Equipo (No editable)</label>
+                    <input type="text" value="{{ equipo.nombre }}" readonly style="background:#e2e8f0; cursor:not-allowed;">
+                </div>
+
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                    <div class="form-group">
+                        <label>Fundación (Año)</label>
+                        <input type="number" name="anio_fundacion" value="{{ equipo.anio_fundacion }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>País</label>
+                        <input type="text" name="pais" value="{{ equipo.pais }}" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Ciudad</label>
+                    <input type="text" name="ciudad" value="{{ equipo.ciudad }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Estadio</label>
+                    <input type="text" name="estadio" value="{{ equipo.estadio }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Entrenador Principal</label>
+                    <input type="text" name="entrenador" value="{{ equipo.entrenador }}" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width:100%; margin-top:10px;">
+                    Guardar Cambios
+                </button>
+            </form>
+            <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
+                <h4 style="color:var(--danger); margin-bottom:10px;">Zona de Peligro</h4>
+                <p style="font-size:0.85rem; color:#666; margin-bottom:15px;">
+                    Esta acción es irreversible. Se borrará el equipo, el usuario y todos los jugadores.
+                </p>
+                
+                <a href="index.php?ctl=eliminar_cuenta" 
+                   class="btn btn-danger" 
+                   style="width:100%; display:block; text-align:center;"
+                   onclick="return confirm('¿ESTÁS SEGURO? \n\nSe borrará todo tu equipo, jugadores y cuenta de usuario permanentemente.\n\nEsta acción no se puede deshacer.')">
+                   💀 Eliminar Cuenta y Equipo
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Liga Profesional</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.php" class="brand">⚽ Liga<span>Pro</span></a>
+        <div class="nav-menu">
+            <a href="index.php?ctl=login" class="btn btn-primary">Acceso Clubes</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <h1 class="section-title">Clubes y Plantillas</h1>
+        <p class="section-subtitle">Temporada Oficial 2024/2025</p>
+
+        <div class="teams-grid">
+            {% for eq in equipos %}
+            <div class="team-card">
+                <div class="team-header">
+                    <div class="team-logo-container">
+                        {% if eq.escudo %}
+                            <img src="data:image/jpeg;base64,{{ eq.escudo|base64_encode }}" class="team-logo" alt="Escudo">
+                        {% else %}
+                             <span style="font-size:2rem;">🛡️</span>
+                        {% endif %}
+                    </div>
+                    <div class="team-info">
+                        <h2>{{ eq.nombre }}</h2>
+                        <span>📍 {{ eq.ciudad }}</span>
+                        <span style="font-size:0.75rem; margin-top:2px; opacity:0.8;">🏟️ {{ eq.estadio }}</span>
+                    </div>
+                </div>
+
+                <div class="team-roster">
+                    <h4 style="margin-bottom:15px; color:#64748b; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">Plantilla</h4>
+                    <ul class="lista-jugadores">
+                    {% for j in jugadores %}
+                    {% if j.equipo == eq.nombre %}
+                        
+                        <li class="jugador-item" style="list-style:none; margin-bottom:5px;">
+                            
+                            <details>
+                                <summary class="jugador-resumen" style="cursor:pointer; padding:10px; background:white; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
+                                    <div>
+                                        <strong style="color:var(--primary); margin-right:5px;">{{ j.dorsal }}</strong>
+                                        {{ j.nombre }}
+                                    </div>
+                                    <span class="badge">{{ j.posicion }}</span>
+                                </summary>
+
+                                <div class="jugador-detalles" style="padding:15px; background:#f8fafc; border-top:1px solid #eee; color:#555;">
+                                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; font-size:0.9rem;">
+                                        <div><strong>🌍 País:</strong> {{ j.pais }}</div>
+                                        <div><strong>🎂 Edad:</strong> {{ j.edad }} años</div>
+                                        <div><strong>📏 Altura:</strong> {{ j.altura }}</div>
+                                        <div><strong>⚖️ Peso:</strong> {{ j.peso }}</div>
+                                    </div>
+                                </div>
+                            </details>
+
+                        </li>
+
+                    {% endif %}
+                {% endfor %}
+                </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>

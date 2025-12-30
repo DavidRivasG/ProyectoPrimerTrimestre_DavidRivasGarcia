@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Gestión</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="brand">⚙️ Panel<span>Gestión</span></a>
+        <div class="nav-menu">
+            <span style="color:rgba(255,255,255,0.7); font-size:0.9rem; margin-right:10px;">
+                Hola, <strong>{{ equipo }}</strong>
+            </span>
+            <a href="index.php?ctl=editar_perfil" class="btn btn-outline" style="font-size:0.8rem;">
+                ✏️ Editar Datos Club
+            </a>
+            <a href="index.php?ctl=logout" class="btn btn-danger">Cerrar Sesión</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="admin-layout">
+            
+            <div style="background:white; padding:30px; border-radius:12px; box-shadow:var(--shadow);">
+                <h2 style="font-size:1.2rem; margin-bottom:20px;">👤 Fichar Jugador</h2>
+                
+                <form action="index.php?ctl=guardar_jugador" method="POST">
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" name="nombre" required>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                        <div class="form-group">
+                            <label>Edad</label>
+                            <input type="number" name="edad" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Dorsal</label>
+                            <input type="number" name="dorsal" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Posición</label>
+                        <input type="text" name="posicion" placeholder="ej: DC , MC , DFC , POR" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>País</label>
+                        <input type="text" name="pais" required>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                        <div class="form-group">
+                            <label>Altura</label>
+                            <input type="text" name="altura" placeholder="180cm" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Peso</label>
+                            <input type="text" name="peso" placeholder="75kg" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width:100%; margin-top:10px;">Guardar Fichaje</button>
+                </form>
+            </div>
+
+            <div>
+                <h1 class="section-title">Plantilla Actual</h1>
+                <p class="section-subtitle">Gestión de datos de los jugadores en activo.</p>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dorsal</th>
+                                <th>Nombre</th>
+                                <th>Posicion</th>
+                                <th>Nacionalidad</th>
+                                <th>Edad</th>
+                                <th>Altura</th>
+                                <th>Peso</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for j in jugadores %}
+                            <tr>
+                                <td style="font-weight:bold;">{{ j.dorsal }}</td>
+                                <td>{{ j.nombre }}</td>
+                                <td><span class="badge">{{ j.posicion }}</span></td>
+                                <td>{{ j.pais }}</td>
+                                <td>{{ j.edad }}</td>
+                                <td>{{ j.altura }}</td>
+                                <td>{{ j.peso }}</td>
+                                <td>
+                                <a href="index.php?ctl=editar_jugador&id={{ j.id }}" class="btn-warning">Editar</a>
+                                
+                                <a href="index.php?ctl=borrar_jugador&id={{ j.id }}" 
+                                   class="btn-danger"
+                                   onclick="return confirm('¿Confirmar baja?')">
+                                   Eliminar
+                                </a>
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="8" style="text-align:center; padding:40px; color:#94a3b8;">
+                                    No hay jugadores registrados. Usa el formulario para añadir uno.
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
