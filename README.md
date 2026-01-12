@@ -4,7 +4,7 @@ Aplicacion web para la gestion de equipos de futbol y jugadores. Este proyecto h
 
 ## URL del Proyecto
 Puedes ver la aplicacion funcionando en el siguiente enlace:
-http://3.236.246.43/index.php
+http://100.26.22.55/
 
 ## Descripcion
 El objetivo de la aplicacion es permitir a los usuarios registrar su propio equipo de futbol y gestionar su plantilla. La web cuenta con una parte publica (visible para todos) y una parte privada (panel de administracion).
@@ -37,3 +37,4 @@ Si deseas probar la aplicacion sin realizar el registro, puedes usar este usuari
 
 - Email: malagacf@gmail.com
 - Contraseña: malagacf
+
